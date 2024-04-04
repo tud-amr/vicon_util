@@ -10,11 +10,13 @@ This package provides the following utilities for using the Vicon motion capture
 In your `ROS1` workspace:
 
 ```
+cd src
 git clone https://github.com/tud-amr/vicon_util.git
 git clone https://github.com/oscardegroot/ros_tools.git
-cd src/ros_tools
-python3 switch_to_ros 1
-cd ../..
+cd ros_tools
+python3 switch_to_ros.py 1
+cd ../../
+rosdep install -y --from-paths src --ignore-src
 ```
 
 The `ros_tools` package is necessary for visualization.
@@ -38,7 +40,12 @@ An example launch file that reads the state of robot `jackal3`, 5 dynamic object
 </launch>
 ```
 
-This can be combined with the spoof Vicon or real Vicon system as follows:
+Details of the object message are here: http://docs.ros.org/en/kinetic/api/derived_object_msgs/html/msg/ObjectArray.html
+The shape is populated as box for static obstacles and cylinders for dynamic obstacles.
+
+---
+
+The bundle utility should be combined with the spoof Vicon or real Vicon system as follows:
 
 ```xml
 <launch>
