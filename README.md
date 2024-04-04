@@ -10,7 +10,7 @@ This package provides the following utilities for using the Vicon motion capture
 In your `ROS1` workspace:
 
 ```
-git clone 
+git clone https://github.com/tud-amr/vicon_util.git
 git clone https://github.com/oscardegroot/ros_tools.git
 cd src/ros_tools
 python3 switch_to_ros 1
