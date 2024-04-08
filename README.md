@@ -10,6 +10,7 @@ This package provides the following utilities for using the Vicon motion capture
 In your `ROS1` workspace:
 
 ```
+sudo apt-get update
 cd src
 git clone https://github.com/tud-amr/vicon_util.git
 git clone https://github.com/oscardegroot/ros_tools.git
@@ -22,6 +23,8 @@ rosdep install -y --from-paths src --ignore-src
 The `ros_tools` package is necessary for visualization.
 
 ## Usage
+There is an example launch file under `launch/example.launch`.
+
 An example launch file that reads the state of robot `jackal3`, 5 dynamic objects and a static object, deploys an EKF on everything but the static object and visualizes the scene looks as follows:
 
 ```xml
@@ -82,6 +85,18 @@ The bundle utility should be combined with the spoof Vicon or real Vicon system 
 Example visualization with the fake Vicon:
 
 <img src="docs/example.png" width="400" />
+
+## Jackal
+To see the Jackal model, you have to install `jackal_description` and visualize `RobotModel`.
+
+```
+sudo apt-get install ros-noetic-jackal-description
+```
+
+Add in the launch file:
+```
+<include file="$(find jackal_description)/launch/description.launch"/>
+```
 
 ## Disclaimer
 To be tested with the real vicon...

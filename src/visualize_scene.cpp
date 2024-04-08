@@ -3,6 +3,7 @@
 
 #include <ros/ros.h>
 
+#include <ros_tools/convertions.h>
 #include <ros_tools/visuals.h>
 
 #include <derived_object_msgs/ObjectArray.h>
@@ -30,6 +31,9 @@ void objectCallback(const derived_object_msgs::ObjectArray::ConstPtr &msg)
             if (object.id == 0)
                 continue; // The first object is the robot
 
+            double angle = RosTools::quaternionToAngle(object.pose.orientation) + M_PI_2;
+
+            dynamic_marker.setOrientation(RosTools::angleToQuaternion(angle));
             dynamic_marker.setColorInt(object.id, 1., RosTools::Colormap::BRUNO);
             dynamic_marker.addPointMarker(object.pose);
         }

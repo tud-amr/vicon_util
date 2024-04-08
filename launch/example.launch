@@ -27,6 +27,6 @@
         <arg name="static_object_sizes" default="[]"/>
     </include>
 
-      <node name="rviz" pkg="rviz" type="rviz" args="-d $(find vicon_util)/rviz/example.rviz" output="screen"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find vicon_util)/rviz/example.rviz" output="screen"/>
 
 </launch>
