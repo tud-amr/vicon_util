@@ -147,7 +147,7 @@ int main(int argc, char **argv)
     {
         auto &topic = _static_topic_list[i];
         _static_subs.push_back(nh->subscribe<geometry_msgs::PoseWithCovarianceStamped>(
-            "vicon/" + topic,
+            "/vicon/" + topic,
             1,
             std::bind(staticObstacleOdomCallback, _dynamic_obstacles_expected + i, std::placeholders::_1)));
         print_statement += topic + " ";

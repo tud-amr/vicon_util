@@ -26,7 +26,7 @@
     <rosparam param="static_objects/topics" subst_value="True">$(arg static_object_topics)</rosparam>
   </node>
 
-  <node if="$(arg visualize_scene)" pkg="vicon_util" type="visualize_scene" name="visualize_scene" output="log"/>
+  <node if="$(arg visualize_scene)" pkg="vicon_util" type="visualize_scene" name="visualize_scene" output="screen"/>
 
 
 </launch>  

@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import os
-import sh
 import rospy
 import subprocess
 
@@ -8,15 +7,17 @@ import subprocess
 
 
 def launch_ekf(input, output, publish_tf):
-    source_path = f"{os.path.dirname(os.path.realpath(__file__))}/../../../devel/setup.zsh"
+
+    source_path = f"{os.path.dirname(os.path.realpath(__file__))}/../../../devel/setup.bash"
 
     run_command = f"source {source_path}"
     run_command += f" && roslaunch vicon_util ekf.launch input_topic:={input} output_topic:={output} publish_tf:={publish_tf} &"
     rospy.loginfo(run_command)
-    subprocess.call(run_command, shell=True, executable="/bin/zsh")
+    subprocess.call(["bash", "-c", run_command])
 
 
 def node_function():
+
     # Initialize the ROS node
     rospy.init_node("launcher_node", anonymous=True)
 
