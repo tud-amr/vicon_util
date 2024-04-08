@@ -84,7 +84,11 @@ The bundle utility should be combined with the spoof Vicon or real Vicon system 
 
 Example visualization with the fake Vicon:
 
-<img src="docs/example.png" width="400" />
+<img src="docs/spoof_example.png" width="400" />
+
+Example visualization on the real Vicon:
+
+<img src="docs/real_example.png" width="400" />
 
 ## Jackal
 To see the Jackal model, you have to install `jackal_description` and visualize `RobotModel`.
@@ -98,5 +102,4 @@ Add in the launch file:
 <include file="$(find jackal_description)/launch/description.launch"/>
 ```
 
-## Disclaimer
-To be tested with the real vicon...
+Then in `rviz`, add a `RobotModel` type marker.
